@@ -1,0 +1,169 @@
+#Question 1 :  Write a Python program to display Hello World without using the print() function.
+
+
+
+def hello_world():       # function definition
+    return "Hello World"
+
+
+hello_world()      # function call
+
+# output Hello World
+
+
+
+
+
+
+'''
+Question 2-Write a Python program that calculates the average (mean) of a given list of numerical               
+values without using the built-in sum() function or any other library function that directly 
+computes the total.
+'''
+
+n1=int(input("Enter the number n1 : "))
+n2=int(input("Enter the number n2 : "))
+n3=int(input("Enter the number n3 : "))
+n4=int(input("Enter the number n4 : "))
+n5=int(input("Enter the number n5 : "))
+numbers = [n1, n2, n3, n4, n5]
+
+total = 0
+count = 0
+for num in numbers:
+    total+=num
+    count+=1
+
+# total = n1+n2+n3+n4+n5
+average=total/count
+
+print("Average is : ",average)
+
+
+# OUTPUT : 
+Enter the number n1 : 1
+Enter the number n2 : 2
+Enter the number n3 : 3
+Enter the number n4 : 4
+Enter the number n5 : 5 
+Average is :  3.0
+
+
+
+
+
+
+# Question 3- Write a Python program to generate and display the Fibonacci series up to a given number of terms.
+
+
+n = int(input("Enter the number : "))
+
+a = 0
+b = 1
+
+if(n == 1):
+   print(a)
+
+else:
+   print(a,b,end=" ")    # end=""  this will not create a new line after a and b
+   for i in range(2,n+1):
+        c = a + b
+        print(c,end=" ")
+        a = b
+        b = c
+
+
+# OUTPUT : 
+# Enter the number : 10
+# 0 1 1 2 3 5 8 13 21 34 55
+
+
+
+
+
+'''
+Question 4- Write a Python program to print numbers from 1 to N following the rules below:
+• Print “Fizz” if the number is divisible by 3
+• Print “Buzz” if the number is divisible by 5
+• Print “FizzBuzz” if the number is divisible by both 3 and 5
+• Otherwise, print the number itself
+'''
+
+
+n = int(input("Enter the number n : "))
+
+for i in range(1, n+1):
+    if(i%3==0 and i%5==0):
+       print("FizzBuzz")
+    elif(i%3==0):
+       print("Fizz")
+    elif(i%5==0):
+       print("Buzz")
+    else:
+       print(i)
+
+
+# OUTPUT : 
+# Enter the number n : 15
+# 1
+# 2
+# Fizz
+# 4
+# Buzz
+# Fizz
+# 7
+# 8
+# Fizz
+# Buzz
+# 11
+# Fizz
+# 13
+# 14
+# FizzBuzz
+
+
+
+
+'''
+Question 5 -Write a Python program to calculate the mean, median, and mode of a given list of
+numerical values.
+'''
+
+numbers = list(map(int,input("Enter numbers : ").split()))
+
+# for finding mean
+total = 0
+for num in numbers:
+    total += num
+mean = total / len(numbers)
+
+# for findig median
+numbers.sort()
+n = len(numbers)
+
+if n % 2 == 0:
+   median = (numbers[n//2 - 1] + numbers[n//2]) / 2     # if n is even
+else:
+   median = numbers[n//2]     # if n is odd
+
+# for finding mode
+frequency = {}      # this empty dictionary
+for num in numbers:
+   frequency[num] = frequency.get(num, 0) + 1
+
+maximumfreq = max(frequency.values())
+mode = [key for key, value in frequency.items() if value == maximumfreq]
+
+print("Mean:", mean)
+print("Median:", median)
+print("Mode:", mode)
+
+
+
+
+# OUTPUT : 
+# Enter numbers : 1 2 3 1 5 2 1 6 1 4 8
+# Mean: 3.090909090909091
+# Median: 2
+# Mode: [1]
+
